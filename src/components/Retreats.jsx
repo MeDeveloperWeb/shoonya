@@ -9,6 +9,7 @@ export default function Retreats() {
   const limit = 4;
   const [retreats, setRetreats] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [isFilterLastPage, setIsFilterLastPage] = useState(false);
 
   const [filter, setFilter] = useState({
     location: '',
@@ -24,8 +25,10 @@ export default function Retreats() {
     async function fetchRetreat() {
       const retreats = await getRetreats({ ...filter, page, limit });
 
+      setIsFilterLastPage(false);
       setRetreats(retreats);
       setLoading(false);
+      if (retreats.length < limit) setIsFilterLastPage(true);
     }
 
     fetchRetreat();
@@ -51,14 +54,14 @@ export default function Retreats() {
           ))}
         </div>
       )}
-      {retreats.length !== 0 && (
-        <Pagination
-          page={page}
-          setPage={setPage}
-          limit={limit}
-          isLoading={isLoading}
-        />
-      )}
+
+      <Pagination
+        page={page}
+        setPage={setPage}
+        limit={limit}
+        isLoading={isLoading}
+        isFilterLastPage={isFilterLastPage}
+      />
     </div>
   );
 }

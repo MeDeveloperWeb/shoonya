@@ -1,9 +1,15 @@
 import PropTypes from 'prop-types';
 
-export default function Pagination({ page, setPage, limit, isLoading }) {
+export default function Pagination({
+  page,
+  setPage,
+  limit,
+  isLoading,
+  isFilterLastPage
+}) {
   const count = 20; // Get the count of document from database
 
-  const isLastPage = Math.ceil(count / limit) === page;
+  const isLastPage = Math.ceil(count / limit) === page || isFilterLastPage;
   return (
     <div className="flex gap-2 justify-center">
       {page !== 1 && (
@@ -32,5 +38,6 @@ Pagination.propTypes = {
   page: PropTypes.number,
   setPage: PropTypes.func,
   limit: PropTypes.number,
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  isFilterLastPage: PropTypes.bool
 };
