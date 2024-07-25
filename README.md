@@ -1,8 +1,31 @@
-# React + Vite
+# Shoonya Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Prerequisites
 
-Currently, two official plugins are available:
+Before you begin, ensure you have met the following requirements:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- You have installed [Node.js](https://nodejs.org/) (which includes npm).
+- You have a [Git](https://git-scm.com/) client installed.
+
+## Running in Local Environment
+
+To install the project, follow these steps:
+
+Open your terminal and run the following command to clone the repository:
+
+```bash
+git clone https://github.com/MeDeveloperWeb/shoonya.git
+
+cd shoonya
+
+npm install
+
+npm run dev
+
+```
+
+Once the development server is running, open your browser and go to:
+
+```bash
+http://localhost:5173
+```
